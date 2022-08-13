@@ -1,0 +1,16 @@
+name: Test My Action
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: My First Action
+    steps:
+      - name: Gosta
+        id: achabom
+        uses: luizloja/potionOfWeakness
+        with: 
+          path: 'gosta'
