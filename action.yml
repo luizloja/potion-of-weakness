@@ -9,5 +9,5 @@ inputs:
     time:
       description: "Time in seconds since epoch"
 runs:
-  using: "node14"
+  using: "node16"
   main: "index.js"
