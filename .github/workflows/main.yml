@@ -13,4 +13,4 @@ jobs:
         id: achabom
         uses: luizloja/potionOfWeakness@v6
         with: 
-          file: 'gosta'
+          file: 'gosta' 
