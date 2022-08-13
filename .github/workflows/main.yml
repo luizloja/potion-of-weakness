@@ -12,18 +12,18 @@ jobs:
       - name: Getting Files
         uses: actions/checkout@v2
       - name: Get specific changed files
-            id: changed-files-specific
-            uses: tj-actions/changed-files@v25
-            with:
-              separator: ";"
-              files: |
-                **/*.ex
-                **/*.exs
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v25
+        with:
+          separator: ";"
+          files: |
+            **/*.ex
+            **/*.exs
       - name: List all added files
-              run: |
-                for file in ${{ steps.changed-files.outputs.added_files }}; do
-                  echo "$file was added"
-                done                
+        run: |
+          for file in ${{ steps.changed-files.outputs.added_files }}; do
+            echo "$file was added"
+          done                
       - name: Gosta
         id: achabom
         uses: luizloja/potion-of-weakness@main
