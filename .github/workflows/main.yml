@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Gosta
         id: achabom
-        uses: luizloja/potionOfWeakness@v6
+        uses: luizloja/potionOfWeakness@v7
         with: 
           file: 'gosta' 
