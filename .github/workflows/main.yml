@@ -16,9 +16,7 @@ jobs:
         uses: tj-actions/changed-files@v25
         with:
           separator: ";"
-          files: |
-            **/*.ex
-            **/*.exs
+            
       - name: List all added files
         run: |
           for file in ${{ steps.changed-files.outputs.added_files }}; do
