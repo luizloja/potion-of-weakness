@@ -1,0 +1,13 @@
+name: "Potion of Weakness"
+description: "Validate the code test coverage"
+inputs:
+  file:
+    description: "File containing tests values"
+    required: true
+    default: "something"
+  outputs:
+    time:
+      description: "Time in seconds since epoch"
+runs:
+  using: "node14"
+  main: "index.js"
