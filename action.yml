@@ -4,7 +4,7 @@ inputs:
   file:
     description: "File containing tests values"
     required: true
-    default: "something"
+    default: "test_coverage.txt"
   modified_files:
     description: "Files that were modified at this pr"
     required: true

@@ -15,7 +15,7 @@ jobs:
         id: changed
         uses: jitterbit/get-changed-files@v1
         with:
-          separator: ";"
+          format: 'csv'
             
       - name: List all added files
         run: |
