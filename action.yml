@@ -5,6 +5,10 @@ inputs:
     description: "File containing tests values"
     required: true
     default: "something"
+  modified_files:
+    description: "Files that were modified at this pr"
+    required: true
+    default: []    
   outputs:
     time:
       description: "Time in seconds since epoch"

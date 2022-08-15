@@ -5,7 +5,10 @@ const fs = require('fs');
 
 try {
     const name = core.getInput('file');
+    const files = core.getInput('modified_files');
+    console.log(files)
     const data = fs.readFileSync('test_coverage.txt', 'utf8');
+
     let coverageData = data.split("\n")
     let coverageDataMap = {}
     coverageData.forEach( line => {

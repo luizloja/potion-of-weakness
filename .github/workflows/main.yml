@@ -26,4 +26,5 @@ jobs:
         id: achabom
         uses: luizloja/potion-of-weakness@main
         with: 
+          modified_files: ${{ steps.changed-files.outputs.modified_files }}
           file: "test_coverage.txt" 
