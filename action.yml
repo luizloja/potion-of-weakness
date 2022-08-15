@@ -8,7 +8,7 @@ inputs:
   modified_files:
     description: "Files that were modified at this pr"
     required: true
-    default: []    
+    default: null    
   outputs:
     time:
       description: "Time in seconds since epoch"
