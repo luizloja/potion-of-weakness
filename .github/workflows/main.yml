@@ -12,19 +12,19 @@ jobs:
       - name: Getting Files
         uses: actions/checkout@v2
       - name: Get specific changed files
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v25
+        id: changed
+        uses: jitterbit/get-changed-files@v1
         with:
           separator: ";"
             
       - name: List all added files
         run: |
-          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+          for file in ${{ steps.changed.outputs.added_modified }}; do
             echo "$file was added"
           done                
       - name: Gosta
         id: achabom
         uses: luizloja/potion-of-weakness@main
         with: 
-          modified_files: ${{ steps.changed-files.outputs.modified_files }}
+          modified_files: ${{ steps.changed.outputs.added_modified }}
           file: "test_coverage.txt" 
