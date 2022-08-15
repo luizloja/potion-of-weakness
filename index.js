@@ -6,7 +6,7 @@ const fs = require('fs');
 try {
     const name = core.getInput('file');
     const files = core.getInput('modified_files');
-    console.log(files)
+    console.log("Files Modified", files)
     const data = fs.readFileSync('test_coverage.txt', 'utf8');
 
     let coverageData = data.split("\n")
