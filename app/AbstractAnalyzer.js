@@ -17,7 +17,7 @@ class AbstractAnalyzer {
 		const entitiesName = Object.keys(filesMap).map(fileName => {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
-
+		core.info("Analyzing files: ")
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)
 	}
 
@@ -57,9 +57,9 @@ class AbstractAnalyzer {
 				)
 		}
 
-		// Log the base and head commits
-		core.info(`Base commit: ${base}`)
-		core.info(`Head commit: ${head}`)
+		// // Log the base and head commits
+		// core.info(`Base commit: ${base}`)
+		// core.info(`Head commit: ${head}`)
 
 		// Ensure that the base and head properties are set on the payload.
 		if (!base || !head) {
@@ -96,7 +96,6 @@ class AbstractAnalyzer {
 
 			// Get the changed files from the response payload.
 			const files = response.data.files
-			console.log("================================================", files)
 			let changedFiles = []
 			for (const file of files) {
 				if(file.status == 'added' || file.status == 'modified'){
@@ -112,7 +111,7 @@ class AbstractAnalyzer {
 	async loadModifiedFiles() {
 		let filesMap = {}
 		const modifiedFiles = await this.findModifiedFiles()
-		core.info(`FIles modidifed: ${JSON.stringify(modifiedFiles, null, 4)}`)
+		// core.info(`Files modidifed: ${JSON.stringify(modifiedFiles, null, 4)}`)
 		modifiedFiles.map(fileName => {
 			filesMap[fileName] = fs.readFileSync(fileName, 'utf8');
 		})

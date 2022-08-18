@@ -1,3 +1,4 @@
+const core = require('@actions/core');
 const AbstractAnalyzer = require('./AbstractAnalyzer.js');
 
 class ElixirAnalyzer extends AbstractAnalyzer {
@@ -28,7 +29,7 @@ class ElixirAnalyzer extends AbstractAnalyzer {
 	analyzeFiles(entitiesName, coverageMap, minimalTestCoverage) {
 		entitiesName.forEach(moduleName => {
 			if (coverageMap[moduleName] >= 0 && coverageMap[moduleName] < this.minimalTestCoverage) {
-				console.log(`Module ${moduleName} has only ${coverageMap[moduleName]}% test coverage. It is necessary at least ${minimalTestCoverage}% of coverage.`)
+				core.info(`Module ${moduleName} has only ${coverageMap[moduleName]}% test coverage. It is necessary at least ${minimalTestCoverage}% of coverage.`)
 			}
 		})
 	}
