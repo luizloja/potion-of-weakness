@@ -2,7 +2,7 @@ defmodule AppWeb.Tush.ServiceAreaView do
 fasdfasdfafasdfadsfaffasdfadsfasdfdfadsfaasdfasda
 end
 
-getting_started/listings/hellofasdfasfadfa/lib/hello_web/controllers/hello_controller.ex
+getting_started/listings/hellofasdfasfadfafdsafasdf/lib/hello_web/controllers/hello_controller.ex
 defmodule HelloWeb.HelloController do
   use HelloWeb, :controller
   def world(conn, _params) do
