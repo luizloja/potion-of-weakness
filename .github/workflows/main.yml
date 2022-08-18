@@ -11,20 +11,19 @@ jobs:
     steps:
       - name: Getting Files
         uses: actions/checkout@v2
-      - name: Get specific changed files
-        id: changed
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'csv'
+      # - name: Get specific changed files
+      #   id: changed
+      #   uses: jitterbit/get-changed-files@v1
+      #   with:
+      #     format: 'csv'
             
-      - name: List all added files
-        run: |
-          for file in ${{ steps.changed.outputs.added_modified }}; do
-            echo "$file was added"
-          done                
+      # - name: List all added files
+      #   run: |
+      #     for file in ${{ steps.changed.outputs.added_modified }}; do
+      #       echo "$file was added"
+      #     done                
       - name: Gosta
         id: achabom
         uses: luizloja/potion-of-weakness@main
         with: 
-          modified_files: ${{ steps.changed.outputs.added_modified }}
-          file: "test_coverage.txt" 
+          coverageFile: "test_coverage.txt" 

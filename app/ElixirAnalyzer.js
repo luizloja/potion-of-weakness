@@ -1,5 +1,4 @@
 const AbstractAnalyzer = require('./AbstractAnalyzer.js');
-const fs = require('fs');
 
 class ElixirAnalyzer extends AbstractAnalyzer {
 

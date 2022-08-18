@@ -1,14 +1,10 @@
 name: "Potion of Weakness"
 description: "Validate the code test coverage"
 inputs:
-  file:
+  coverageFile:
     description: "File containing tests values"
     required: true
     default: "test_coverage.txt"
-  modified_files:
-    description: "Files that were modified at this pr"
-    required: true
-    default: null    
   outputs:
     time:
       description: "Time in seconds since epoch"
