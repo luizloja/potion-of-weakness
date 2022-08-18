@@ -6,9 +6,11 @@ inputs:
     required: true
     default: "test_coverage.txt"
   token:
-    description: "Token"
+    description: >
+      GitHub token for GitHub API requests.
+      Users shouldn't need to set this themselves.
     required: true
-    default: "tokenBoy"    
+    default: ${{ github.token }}  
   outputs:
     time:
       description: "Time in seconds since epoch"

@@ -27,4 +27,3 @@ jobs:
         uses: luizloja/potion-of-weakness@main
         with: 
           coverageFile: "test_coverage.txt" 
-          token: "sometoken"
