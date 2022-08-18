@@ -99,10 +99,7 @@ class AbstractAnalyzer {
 			console.log("================================================", files)
 			return files
 		}).catch(err => {
-			core.setFailed(
-				`The head commit for this ${context.eventName} event is not ahead of the base commit. ` +
-				"Please submit an issue on this action's GitHub repo."
-			)
+			core.setFailed(err)
 		})
 	}
 
