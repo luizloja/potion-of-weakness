@@ -29,7 +29,7 @@ class AbstractAnalyzer {
 		// Create GitHub client with the API token.
 		const context= github.context
 
-		const client = new github.GitHub(core.getInput('token', { required: false }))
+		const client = new github.getOctokit(core.getInput('token', { required: true }))
 
 		// Debug log the payload.
 		core.debug(`Payload keys: ${Object.keys(context.payload)}`)

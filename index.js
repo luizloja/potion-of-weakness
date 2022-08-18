@@ -10,7 +10,7 @@ try {
     const path = "test_coverage.txt";
     const files = ["lib/schema/schema.ex"]
  
-    const client = new gitGosta.getOctokit(core.getInput('token', { required: false }))
+    const client = new gitGosta.getOctokit(core.getInput('token', { required: true }))
     const minimalTestCoverage = 70
     let elixirAnalyzer = new ElixirAnalyzer(path, minimalTestCoverage)
     elixirAnalyzer.execute()
