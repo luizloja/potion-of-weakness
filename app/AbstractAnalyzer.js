@@ -58,6 +58,7 @@ class AbstractAnalyzer {
 		}
 
 		// Log the base and head commits
+		core.info(`Base commit: ${client}`)
 		core.info(`Base commit: ${base}`)
 		core.info(`Head commit: ${head}`)
 

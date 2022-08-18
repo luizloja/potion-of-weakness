@@ -1,5 +1,5 @@
 defmodule AppWeb.Tush.ServiceAreaView do
-fasdfasdfafasdfadsfaffasdfadsfaasdfasda
+fasdfasdfafasdfadsfaffasdfadsfasdfdfadsfaasdfasda
 end
 
 getting_started/listings/hello/lib/hello_web/controllers/hello_controller.ex
