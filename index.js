@@ -1,20 +1,13 @@
 const core = require('@actions/core');
-const gitGosta = require('@actions/github');
-
 
 const ElixirAnalyzer = require('./app/ElixirAnalyzer.js')
-
 
 try {
     // const path = core.getInput('coverageFile');
     const path = "test_coverage.txt";
-    const files = ["lib/schema/schema.ex"]
  
-    const client = new gitGosta.getOctokit(core.getInput('token', { required: true }))
-    const minimalTestCoverage = 70
-    let elixirAnalyzer = new ElixirAnalyzer(path, minimalTestCoverage)
+    let elixirAnalyzer = new ElixirAnalyzer(path, core.getInput('minimalTestCoverage', { required: true }))
     elixirAnalyzer.execute()
-   // console.log(coverageDataMap)
 } catch (error) {
-    console.log(error)
+    core.error(error)
 }

@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class AbstractAnalyzer {
 
-	constructor(testCoverageFile, files, minimalTestCoverage) {
+	constructor(testCoverageFile, minimalTestCoverage) {
 		this.testCoverageFile = testCoverageFile
 		this.minimalTestCoverage = minimalTestCoverage
 	}
@@ -18,9 +18,7 @@ class AbstractAnalyzer {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
 		core.info("Analyzing files: ")
-		core.info(`fileData: ${JSON.stringify(fileData, null, 4)}`)
 		core.info(`coverageMap: ${JSON.stringify(coverageMap, null, 4)}`)
-		core.info(`filesMap: ${JSON.stringify(filesMap, null, 4)}`)
 		core.info(`entitiesName: ${JSON.stringify(entitiesName, null, 4)}`)
 		
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)

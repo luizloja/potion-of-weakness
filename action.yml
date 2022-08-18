@@ -5,6 +5,10 @@ inputs:
     description: "File containing tests values"
     required: true
     default: "test_coverage.txt"
+  minimalTestCoverage:
+    description: "The tests must have minimal of 70% coverage"
+    required: true
+    default: 70
   token:
     description: >
       GitHub token for GitHub API requests.
