@@ -27,6 +27,9 @@ class AbstractAnalyzer {
 	 */
 	findModifiedFiles() {
 		// Create GitHub client with the API token.
+		const GitHub = github.GitHub 
+		const context= github.context
+		
 		const client = new GitHub(core.getInput('token', { required: true }))
 		const format = core.getInput('format', { required: true })
 
