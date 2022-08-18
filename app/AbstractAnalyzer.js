@@ -72,7 +72,7 @@ class AbstractAnalyzer {
 
 		// Use GitHub's compare two commits API.
 		// https://developer.github.com/v3/repos/commits/#compare-two-commits
-		return client.repos.compareCommits({
+		return client.rest.repos.compareCommits({
 			base,
 			head,
 			owner: context.repo.owner,
