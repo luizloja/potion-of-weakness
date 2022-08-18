@@ -37,7 +37,7 @@ class AbstractAnalyzer {
 		// Define the base and head commits to be extracted from the payload.
 		let base = null
 		let head = null
-		core.info(`Context ===========: ${JSON.stringify(context, null, 4)}`)
+		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
 		switch (eventName) {
 			case 'pull_request':
 				base = context.payload.pull_request.base.sha
