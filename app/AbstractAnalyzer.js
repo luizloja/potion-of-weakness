@@ -13,7 +13,7 @@ class AbstractAnalyzer {
 		const fileData = fs.readFileSync(this.testCoverageFile, 'utf8');
 		const coverageMap = this.loadMapPercentages(fileData)
 
-		const filesMap = this.loadModifiedFiles()
+		const filesMap = await this.loadModifiedFiles()
 		const entitiesName = Object.keys(filesMap).map(fileName => {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
