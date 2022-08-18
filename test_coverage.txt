@@ -30,7 +30,7 @@ Percentage | Module
      0.00% | AppWeb.Shopify.Webhook.ProductView
      0.00% | AppWeb.Tush.ActionDataController
      0.00% | AppWeb.Tush.ActionDataView
-     0.00% | AppWeb.Tush.ServiceAreaController
+    90.00% | AppWeb.Tush.ServiceAreaController
      0.00% | AppWeb.Tush.ServiceAreaView
      0.00% | AppWeb.Tush.UserController
      0.00% | AppWeb.Tush.UserView
