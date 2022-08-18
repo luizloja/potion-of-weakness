@@ -9,7 +9,7 @@ class AbstractAnalyzer {
 		this.minimalTestCoverage = minimalTestCoverage
 	}
 
-	execute() {
+	async execute() {
 		const fileData = fs.readFileSync(this.testCoverageFile, 'utf8');
 		const coverageMap = this.loadMapPercentages(fileData)
 
@@ -25,7 +25,7 @@ class AbstractAnalyzer {
 	 * The core of this function was taken from https://github.com/jitterbit/get-changed-files/blob/master/src/main.ts
 	 * Special thanks for jitterbit
 	 */
-	findModifiedFiles() {
+	async findModifiedFiles() {
 		// Create GitHub client with the API token.
 		const context= github.context
 
@@ -58,7 +58,6 @@ class AbstractAnalyzer {
 		}
 
 		// Log the base and head commits
-		core.info(`Base commit: ${JSON.stringify(client, null, 4)}`)
 		core.info(`Base commit: ${base}`)
 		core.info(`Head commit: ${head}`)
 
@@ -107,9 +106,10 @@ class AbstractAnalyzer {
 		})
 	}
 
-	loadModifiedFiles() {
+	async loadModifiedFiles() {
 		let filesMap = {}
-		const modifiedFiles = this.findModifiedFiles()
+		const modifiedFiles = await this.findModifiedFiles()
+		core.info(`FIles modidifed: ${JSON.stringify(modifiedFiles, null, 4)}`)
 		modifiedFiles.map(fileName => {
 			filesMap[fileName] = fs.readFileSync(fileName, 'utf8');
 		})
