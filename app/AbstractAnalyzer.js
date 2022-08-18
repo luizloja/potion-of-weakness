@@ -28,7 +28,7 @@ class AbstractAnalyzer {
 	findModifiedFiles() {
 		// Create GitHub client with the API token.
 		const client = new GitHub(core.getInput('token', { required: true }))
-		const format = core.getInput('format', { required: true }) 
+		const format = core.getInput('format', { required: true })
 
 		// Debug log the payload.
 		core.debug(`Payload keys: ${Object.keys(context.payload)}`)
@@ -70,33 +70,39 @@ class AbstractAnalyzer {
 
 		// Use GitHub's compare two commits API.
 		// https://developer.github.com/v3/repos/commits/#compare-two-commits
-		const response = await client.repos.compareCommits({
+		return client.repos.compareCommits({
 			base,
 			head,
 			owner: context.repo.owner,
 			repo: context.repo.repo
-		})
+		}).then(response => {
+			core.info(`GOSTA`)
+			// Ensure that the request was successful.
+			if (response.status !== 200) {
+				core.setFailed(
+					`The GitHub API for comparing the base and head commits for this ${context.eventName} event returned ${response.status}, expected 200. ` +
+					"Please submit an issue on this action's GitHub repo."
+				)
+			}
 
-		// Ensure that the request was successful.
-		if (response.status !== 200) {
-			core.setFailed(
-				`The GitHub API for comparing the base and head commits for this ${context.eventName} event returned ${response.status}, expected 200. ` +
-				"Please submit an issue on this action's GitHub repo."
-			)
-		}
+			// Ensure that the head commit is ahead of the base commit.
+			if (response.data.status !== 'ahead') {
+				core.setFailed(
+					`The head commit for this ${context.eventName} event is not ahead of the base commit. ` +
+					"Please submit an issue on this action's GitHub repo."
+				)
+			}
 
-		// Ensure that the head commit is ahead of the base commit.
-		if (response.data.status !== 'ahead') {
+			// Get the changed files from the response payload.
+			const files = response.data.files
+			console.log("================================================", files)
+			return files
+		}).catch(err => {
 			core.setFailed(
 				`The head commit for this ${context.eventName} event is not ahead of the base commit. ` +
 				"Please submit an issue on this action's GitHub repo."
 			)
-		}
-
-		// Get the changed files from the response payload.
-		const files = response.data.files
-		console.log("================================================",files)
-		return files
+		})
 	}
 
 	loadModifiedFiles() {
