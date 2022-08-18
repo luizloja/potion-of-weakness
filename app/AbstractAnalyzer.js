@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const octokit = require("@octokit/rest");
 const fs = require('fs');
 
 class AbstractAnalyzer {
@@ -30,7 +31,10 @@ class AbstractAnalyzer {
 		const GitHub = github.GitHub 
 		const context= github.context
 
-		const client = new GitHub("core.getInput('token', { required: true })")
+		// const client = new GitHub("core.getInput('token', { required: true })")
+		const client = new octokit.Octokit({
+			auth: core.getInput("token", { required: false }),
+		  });
 
 		// Debug log the payload.
 		core.debug(`Payload keys: ${Object.keys(context.payload)}`)
