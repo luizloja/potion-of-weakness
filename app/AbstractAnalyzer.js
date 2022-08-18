@@ -18,9 +18,6 @@ class AbstractAnalyzer {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
 		core.info("Analyzing files: ")
-		core.info(`coverageMap: ${JSON.stringify(coverageMap, null, 4)}`)
-		core.info(`entitiesName: ${JSON.stringify(entitiesName, null, 4)}`)
-		
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)
 	}
 
@@ -33,9 +30,6 @@ class AbstractAnalyzer {
 		const context= github.context
 
 		const client = new github.getOctokit(core.getInput('token', { required: true }))
-
-		// Debug log the payload.
-		core.debug(`Payload keys: ${Object.keys(context.payload)}`)
 
 		// Get event name.
 		const eventName = context.eventName
