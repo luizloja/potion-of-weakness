@@ -1,3 +1,3 @@
 defmodule AppWeb.Tush.ServiceAreaController do
-fdafads
+fdafadsfsadfasdfd
 end
