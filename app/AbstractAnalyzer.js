@@ -97,7 +97,13 @@ class AbstractAnalyzer {
 			// Get the changed files from the response payload.
 			const files = response.data.files
 			console.log("================================================", files)
-			return files
+			let changedFiles = []
+			for (const file of files) {
+				if(file.status == 'added' || file.status == 'modified'){
+					changedFiles.push(file.filename)  
+				}
+			}
+			return changedFiles
 		}).catch(err => {
 			core.setFailed(err)
 		})
