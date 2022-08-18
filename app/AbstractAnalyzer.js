@@ -31,7 +31,7 @@ class AbstractAnalyzer {
 		const GitHub = github.GitHub 
 		const context= github.context
 
-		const client = new GitHub("core.getInput('token', { required: true })")
+		const client = new GitHub(core.getInput('token', { required: false }))
 
 		// Debug log the payload.
 		core.debug(`Payload keys: ${Object.keys(context.payload)}`)
