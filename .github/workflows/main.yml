@@ -2,7 +2,7 @@ name: Test My Action
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, testing-pull-request ]
 
 jobs:
   tests:
@@ -27,4 +27,4 @@ jobs:
         uses: luizloja/potion-of-weakness@main
         with: 
           coverageFile: "test_coverage.txt" 
-          minimalTestCoverage: 70
+          minimalTestCoverage: 70 
