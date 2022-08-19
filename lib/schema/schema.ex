@@ -14,5 +14,5 @@ end
 getting_started/listings/hello/lib/hello_web/views/hello_view.ex
 defmodule HelloWeb.HelloView do
   use HelloWeb, :viewfasd  fasfdasdfadfasdfasd
-  GostafasdfasdfFASDFASDFAfasdfasdfasdfaasdfads
+  GostafasdfasdfFASDFASDFAsdsdsdsdfasdfasdfasdfaasdfads
 end
