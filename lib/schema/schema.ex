@@ -7,12 +7,12 @@ defmodule HelloWeb.HelloController do
   use HelloWeb, :controller
   def world(conn, _params) do
     render(conn, "world.html")fasdfas
-    fasdfasdasfdasfasfasdffafasdfasdffadsfasdfadsfffdafasdfaasfadfadsasdfasdadadasddfadsdfasdasdfadsdfasdfasd
+    fasdfasdasfdasfasfasdffafafasdfasdasdfasdffadsfasdfadsfffdafasdfaasfadfadsasdfasdadadasddfadsdfasdasdfadsdfasdfasd
   end
 end
 
 getting_started/listings/hello/lib/hello_web/views/hello_view.ex
 defmodule HelloWeb.HelloView do
   use HelloWeb, :viewfasd  fasfdasdfadfasdfasd
-  GostafasdfasdfFASDFASDFAfasdfasdfasdfaasdfads
+  GostafasdfasdfFASDFASDFAsdsdsdsdfasdfasdfasdfaasdfads
 end
