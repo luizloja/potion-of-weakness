@@ -27,10 +27,10 @@ class ElixirAnalyzer extends AbstractAnalyzer {
 	}
 
 	analyzeFiles(entitiesName, coverageMap, minimalTestCoverage) {
-		core.info(`The minimal percentage dcoverage defined is ${minimalTestCoverage}%.`)
+		core.info(`The minimal coverage percentage defined is \u001b[32;1m${minimalTestCoverage}%\u001b[0m.`)
 		entitiesName.forEach(moduleName => {
 			if (coverageMap[moduleName] >= 0 && coverageMap[moduleName] < minimalTestCoverage) {
-				core.info(`\u001b[1m\u001b[31m (x) Module ${moduleName} has only ${coverageMap[moduleName]}% test coverage. More tests, teeeeeests \u001b[0m`)
+				core.info(`\u001b[1m\u001b[31m (x) Module ${moduleName} has only ${coverageMap[moduleName]}% test coverage. More tests! \u001b[0m`)
 			}else if(coverageMap[moduleName] >= 0 && coverageMap[moduleName] >= minimalTestCoverage){
 				core.info(`\u001b[32;1m (✓) Module ${moduleName} has ${coverageMap[moduleName]}% test coverage. Great, dude.`)
 			}
