@@ -8,7 +8,7 @@ class AbstractAnalyzer {
 		this.testCoverageFile = testCoverageFile
 		this.minimalTestCoverage = minimalTestCoverage
 		this.branchToCompare = branchToCompare
-		core.info("AQUIIIIII    branch", branchToCompare)
+		//core.info("AQUIIIIII    branch", branchToCompare)
 	}
 
 	async execute() {
@@ -40,7 +40,7 @@ class AbstractAnalyzer {
 		let base = null
 		let head = null
 		// core.info("Testing=========");
-		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
+		//core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
 		
 		switch (eventName) {
 			case 'pull_request':
