@@ -17,7 +17,7 @@ class AbstractAnalyzer {
 		const entitiesName = Object.keys(filesMap).map(fileName => {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
-		core.info("Analyzing files:")
+		core.info("Analyzing files: =============================")
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)
 	}
 
