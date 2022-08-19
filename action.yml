@@ -8,12 +8,12 @@ inputs:
   minimalTestCoverage:
     description: "The tests must have minimal of 70% coverage"
     required: true
-    default: 70
+    default: 60
   token:
     description: >
       GitHub token for GitHub API requests.
       Users shouldn't need to set this themselves.
-    required: true
+    required: false
     default: ${{ github.token }}  
   outputs:
     time:
