@@ -5,7 +5,9 @@ try {
     // const path = core.getInput('coverageFile');
     const path = "test_coverage.txt";
     core.debug("Gosta")
-    let elixirAnalyzer = new ElixirAnalyzer(path, core.getInput('minimalTestCoverage', { required: true }))
+    let elixirAnalyzer = new ElixirAnalyzer(path, 
+        core.getInput('minimalTestCoverage', { required: true }), 
+        core.getInput('branchToCompare', { required: false }))
     elixirAnalyzer.execute()
 } catch (error) {
     core.error(error)
