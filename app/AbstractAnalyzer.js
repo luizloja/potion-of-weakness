@@ -4,9 +4,10 @@ const fs = require('fs');
 
 class AbstractAnalyzer {
 
-	constructor(testCoverageFile, minimalTestCoverage) {
+	constructor(testCoverageFile, minimalTestCoverage, branchToCompare = null) {
 		this.testCoverageFile = testCoverageFile
 		this.minimalTestCoverage = minimalTestCoverage
+		this.branchToCompare = branchToCompare
 	}
 
 	async execute() {
@@ -17,7 +18,7 @@ class AbstractAnalyzer {
 		const entitiesName = Object.keys(filesMap).map(fileName => {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
-		core.info("Analyzing files: =============================")
+		core.info("Analyzing files:")
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)
 	}
 
@@ -39,15 +40,17 @@ class AbstractAnalyzer {
 		let head = null
 		// core.info("Testing=========");
 		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
-		core.info(`Pulls ==================: ${JSON.stringify(client, null, 4)}`)
 		
 		switch (eventName) {
 			case 'pull_request':
-				base = context.payload.pull_request.base.sha
+				base = this.branchToCompare || context.payload.repository.master_branch //context.payload.pull_request.base.sha
 				head = context.payload.pull_request.head.sha
 				break
 			case 'push':
-				base = context.payload.before
+				let base = this.branchToCompare || context.payload.repository.master_branch
+				if(context.payload.ref == `refs/heads/${base}`){
+					base = context.payload.before
+				}
 				head = context.payload.after
 				break
 			default:
@@ -73,7 +76,7 @@ class AbstractAnalyzer {
 		// https://developer.github.com/v3/repos/commits/#compare-two-commits 
 		return client.rest.repos.compareCommits({
 			// base,
-			base: "main",
+			base,
 			head,
 			owner: context.repo.owner,
 			repo: context.repo.repo

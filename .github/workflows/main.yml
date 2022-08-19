@@ -2,7 +2,7 @@ name: Test My Action
 
 on:
   push:
-    branches: [ main, testing-sha ]
+    branches: [ main, test-main-2 ]
 
 jobs:
   tests:
@@ -28,3 +28,4 @@ jobs:
         with: 
           coverageFile: "test_coverage.txt" 
           minimalTestCoverage: 70
+          branchToCompare: "main"

@@ -9,6 +9,9 @@ inputs:
     description: "The tests must have minimal of 70% coverage"
     required: true
     default: 60
+  branchToCompare:
+    description: "The name of the branch to compare with the commit"
+    required: false
   token:
     description: >
       GitHub token for GitHub API requests.
