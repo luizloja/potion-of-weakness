@@ -38,8 +38,8 @@ class AbstractAnalyzer {
 		let base = null
 		let head = null
 		// core.info("Testing=========");
-		// core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
-		// core.info(`Pulls ==================: ${JSON.stringify(client.pulls, null, 4)}`)
+		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
+		core.info(`Pulls ==================: ${JSON.stringify(client, null, 4)}`)
 		
 		switch (eventName) {
 			case 'pull_request':
