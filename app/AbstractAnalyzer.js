@@ -8,7 +8,7 @@ class AbstractAnalyzer {
 		this.testCoverageFile = testCoverageFile
 		this.minimalTestCoverage = minimalTestCoverage
 		this.branchToCompare = branchToCompare
-		core.info("AQUIIIIII branch", branchToCompare)
+		core.info("AQUIIIIII    branch", branchToCompare)
 	}
 
 	async execute() {
