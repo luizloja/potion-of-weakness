@@ -69,7 +69,8 @@ class AbstractAnalyzer {
 		// Use GitHub's compare two commits API.
 		// https://developer.github.com/v3/repos/commits/#compare-two-commits
 		return client.rest.repos.compareCommits({
-			base,
+			// base,
+			base: "ac16a7b63b49a5425d11a6d5575b71b1e25569f5",
 			head,
 			owner: context.repo.owner,
 			repo: context.repo.repo
@@ -79,6 +80,7 @@ class AbstractAnalyzer {
 				core.setFailed(
 					`The GitHub API for comparing the base and head commits for this ${context.eventName} event returned ${response.status}, expected 200. ` +
 					"Please submit an issue on this action's GitHub repo."
+					//git rev-parse origin/main
 				)
 			}
 
