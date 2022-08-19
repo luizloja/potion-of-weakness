@@ -38,8 +38,8 @@ class AbstractAnalyzer {
 		let base = null
 		let head = null
 		// core.info("Testing=========");
-		// core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
-		// core.info(`Pulls ==================: ${JSON.stringify(client.pulls, null, 4)}`)
+		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
+		core.info(`Pulls ==================: ${JSON.stringify(client, null, 4)}`)
 		
 		switch (eventName) {
 			case 'pull_request':
@@ -70,7 +70,7 @@ class AbstractAnalyzer {
 		}
 
 		// Use GitHub's compare two commits API.
-		// https://developer.github.com/v3/repos/commits/#compare-two-commits
+		// https://developer.github.com/v3/repos/commits/#compare-two-commits 
 		return client.rest.repos.compareCommits({
 			// base,
 			base: "6795fd02da4fca77f10db68bfb7a366ecaef912f",
