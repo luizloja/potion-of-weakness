@@ -2,12 +2,12 @@ defmodule AppWeb.Tush.ServiceAreaView do
 fasdfasdfafasdfadsfaffasdfadsfasdfdfadsfaasdfasda
 end
 
-getting_started/listings/hellofasscddsddfasfadfafdsafasdf/lib/hello_web/controllers/hello_controller.ex
+getting_started/listings/hellofdsafadsfasscddsddfasfadfafdsafasdf/lib/hello_web/controllers/hello_controller.ex
 defmodule HelloWeb.HelloController do
   use HelloWeb, :controller
   def world(conn, _params) do
     render(conn, "world.html")fasdfas
-    fasdfasdasfdasfasfasdffaffasfadfadsasdfasdadadasddfadsdfasdasdfadsdfasdfasd
+    fasdfasdasfdasfasfasdffaffadsfasdfadsfffdafasdfaasfadfadsasdfasdadadasddfadsdfasdasdfadsdfasdfasd
   end
 end
 

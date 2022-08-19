@@ -17,7 +17,7 @@ class AbstractAnalyzer {
 		const entitiesName = Object.keys(filesMap).map(fileName => {
 			return this.extractEntitiesName(fileName, filesMap[fileName])
 		}).flat()
-		core.info("Analyzing files:")
+		core.info("Analyzing files: =============================")
 		this.analyzeFiles(entitiesName, coverageMap, this.minimalTestCoverage)
 	}
 
@@ -37,7 +37,10 @@ class AbstractAnalyzer {
 		// Define the base and head commits to be extracted from the payload.
 		let base = null
 		let head = null
-
+		core.info("Testing=========");
+		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
+		core.info(`Pulls ==================: ${JSON.stringify(client.pulls, null, 4)}`)
+		
 		switch (eventName) {
 			case 'pull_request':
 				base = context.payload.pull_request.base.sha
