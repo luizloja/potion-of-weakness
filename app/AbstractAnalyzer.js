@@ -47,7 +47,7 @@ class AbstractAnalyzer {
 				head = context.payload.pull_request.head.sha
 				break
 			case 'push':
-				let base = this.branchToCompare || context.payload.repository.master_branch
+				base = this.branchToCompare || context.payload.repository.master_branch
 				if(context.payload.ref == `refs/heads/${base}`){
 					base = context.payload.before
 				}
