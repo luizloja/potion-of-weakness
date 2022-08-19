@@ -30,9 +30,9 @@ class ElixirAnalyzer extends AbstractAnalyzer {
 		core.info(`The minimal percentage dcoverage defined is ${minimalTestCoverage}%.`)
 		entitiesName.forEach(moduleName => {
 			if (coverageMap[moduleName] >= 0 && coverageMap[moduleName] < minimalTestCoverage) {
-				core.info(`\u001b[85;85;255;0;0mModule ${moduleName} has only ${coverageMap[moduleName]}% test coverage. More tests, teeeeeests`)
+				core.info(`\u001b[38;2;255;0;0mModule ${moduleName} has only ${coverageMap[moduleName]}% test coverage. More tests, teeeeeests`)
 			}else if(coverageMap[moduleName] >= 0 && coverageMap[moduleName] >= minimalTestCoverage){
-				core.info(`\u001b[85;255;85mModule ${moduleName} has ${coverageMap[moduleName]}% test coverage. Great, dude.`)
+				core.info(`\u001b[38;5;6mModule ${moduleName} has ${coverageMap[moduleName]}% test coverage. Great, dude.`)
 			}
 		})
 	}
