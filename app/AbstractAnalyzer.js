@@ -37,9 +37,9 @@ class AbstractAnalyzer {
 		// Define the base and head commits to be extracted from the payload.
 		let base = null
 		let head = null
-		core.info("Testing=========");
-		core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
-		core.info(`Pulls ==================: ${JSON.stringify(client.pulls, null, 4)}`)
+		// core.info("Testing=========");
+		// core.info(`Context ==================: ${JSON.stringify(context, null, 4)}`)
+		// core.info(`Pulls ==================: ${JSON.stringify(client.pulls, null, 4)}`)
 		
 		switch (eventName) {
 			case 'pull_request':
@@ -73,7 +73,7 @@ class AbstractAnalyzer {
 		// https://developer.github.com/v3/repos/commits/#compare-two-commits
 		return client.rest.repos.compareCommits({
 			// base,
-			base: "ac16a7b63b49a5425d11a6d5575b71b1e25569f5",
+			base: "6795fd02da4fca77f10db68bfb7a366ecaef912f",
 			head,
 			owner: context.repo.owner,
 			repo: context.repo.repo
